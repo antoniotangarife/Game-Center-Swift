@@ -17,10 +17,13 @@ override func viewDidLoad() {
 After You can :
 =================
 * Begin load game Center Achievements
+
 gameCenter.gameCenterLoadAchievements()
 
 * Add Progress To An Achievement
-gameCenterAddProgressToAnAchievement(progress:Double,achievementID:String)
+
+gameCenter.AddProgressToAnAchievement(progress:Double,achievementID:String)
 
 * Reset one Achievements
-resetAchievements(achievementID:String)
+
+gameCenter.resetAchievements(achievementID:String)
