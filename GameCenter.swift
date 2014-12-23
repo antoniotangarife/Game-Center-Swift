@@ -79,7 +79,7 @@ class GameCenter {
     	:param: Progress achievement Double
     	:param: ID Achievement
     */
-    func gameCenterAddProgressToAnAchievement(progress:Double,achievementID:String) {
+    func addProgressToAnAchievement(progress:Double,achievementID:String) {
         if canUseGameCenter == true { // only update progress if user opt-in to use Game Center
             // lookup if prev progress is logged for this achievement = achievement is already know (and loaded) form Game Center for this user
             var lookupAchievement:GKAchievement? = gameCenterAchievements[achievementID]
