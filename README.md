@@ -22,7 +22,7 @@ gameCenter.gameCenterLoadAchievements()
 
 * Add Progress To An Achievement
 
-gameCenter.AddProgressToAnAchievement(progress:Double,achievementID:String)
+gameCenter.addProgressToAnAchievement(progress:Double,achievementID:String)
 
 * Reset one Achievements
 
