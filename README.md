@@ -1,4 +1,4 @@
-Game-Center-Swift
+Simple Game-Center-Swift
 =================
 Game Center iOS Swift Class
 By Yannickstephan.com
