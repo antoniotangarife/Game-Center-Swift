@@ -23,7 +23,8 @@ class GameCenter {
     var gameCenterAchievements=[String:GKAchievement]()
     
     /**
-    	builder
+    	Builder
+    	:param: UIViewController current
     */
     init(uiControlNow : UIViewController) {
         
