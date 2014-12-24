@@ -1,8 +1,10 @@
 Simple Class Game Center Swift  [![](http://img.shields.io/badge/iOS-8.0%2B-lightgrey.svg)]()
+=====
 
 Simple Game Center iOS Swift Class
 By Yannickstephan.com
 Version : 1.0
+=====
 
 **Begin** Begin add attribute:
 ```swift
