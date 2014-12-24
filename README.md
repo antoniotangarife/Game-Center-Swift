@@ -7,7 +7,38 @@ By Yannickstephan.com
 
 Version : 1.0
 
+**Begin**
+=====
+(1) Add FrameWork GameKit.framework
 
+(2) Create two files :
+
+* GKLocalPlayerHack.h
+```swift
+#import <GameKit/GameKit.h>
+
+@interface GKLocalPlayerHack : NSObject
+
+GKLocalPlayer *getLocalPlayer(void);
+
+@end
+```
+GKLocalPlayerHack.m
+```swift
+#import "GKLocalPlayerHack.h"
+
+@implementation GKLocalPlayerHack
+
+GKLocalPlayer *getLocalPlayer(void)
+{
+    return [GKLocalPlayer localPlayer];
+}
+@end
+```
+(3) In your Swift Bridging Header.h (Objectic-c import)
+```swift
+#import "GKLocalPlayerHack.h"
+```
 **Begin** Begin add attribute:
 =====
 ```swift
