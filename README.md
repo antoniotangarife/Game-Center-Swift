@@ -4,15 +4,17 @@ Simple Class Game Center Swift  [![](http://img.shields.io/badge/iOS-8.0%2B-ligh
 Simple Game Center iOS Swift Class
 By Yannickstephan.com
 Version : 1.0
-=====
+
 
 **Begin** Begin add attribute:
+=====
 ```swift
 var gameCenter: GameCenter! 
 ```
 
 
 **UIViewController** In UIControler :
+=====
 ```swift
 override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,8 +25,9 @@ override func viewDidLoad() {
 ```
 
 **Methode** for Simple Class Game Center :
-
+=====
 **Things you can do**
+=====
 
 ** Add Progress To An Achievement **
 ```swift
