@@ -2,7 +2,9 @@ Simple Class Game Center Swift  [![](http://img.shields.io/badge/iOS-8.0%2B-ligh
 =====
 
 Simple Game Center iOS Swift Class
+
 By Yannickstephan.com
+
 Version : 1.0
 
 
@@ -40,7 +42,7 @@ gameCenter.resetAchievements(achievementID:String)
 
 
 ### Legacy support
-For support of iOS 7 and OS X 10.9. [Yannick Stephan](https://yannickstephan.com) works hard to have as high feature parity with **Simple Game Center** as possible.
+For support of iOS 7 & 8. [Yannick Stephan](https://yannickstephan.com) works hard to have as high feature parity with **Simple Game Center** as possible.
 
 ### License
 The MIT License (MIT)
