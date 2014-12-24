@@ -29,11 +29,11 @@ override func viewDidLoad() {
 **Things you can do**
 =====
 
-** Add Progress To An Achievement **
+**Add Progress To An Achievement**
 ```swift
 gameCenter.addProgressToAnAchievement(progress:Double,achievementID:String)
 ```
-** Reset one Achievements **
+**Reset one Achievements**
 ```swift
 gameCenter.resetAchievements(achievementID:String)
 ```
