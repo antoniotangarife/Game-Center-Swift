@@ -39,14 +39,14 @@ GKLocalPlayer *getLocalPlayer(void)
 ```swift
 #import "GKLocalPlayerHack.h"
 ```
-**Begin** Begin add attribute in your class:
+**Begin** Begin add attribute in your class Controller:
 =====
 ```swift
 var gameCenter: GameCenter! 
 ```
 
 
-**UIViewController** In UIControler in same class:
+**UIViewController** In the same class add :
 =====
 ```swift
 override func viewDidLoad() {
