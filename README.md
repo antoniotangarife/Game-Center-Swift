@@ -5,40 +5,8 @@ Simple Game Center iOS Swift Class
 
 By Yannickstephan.com
 
-Version : 1.0
+Version : 2.0
 
-**Begin**
-=====
-(1) Add FrameWork GameKit.framework
-
-(2) Create two files :
-
-* GKLocalPlayerHack.h
-```swift
-#import <GameKit/GameKit.h>
-
-@interface GKLocalPlayerHack : NSObject
-
-GKLocalPlayer *getLocalPlayer(void);
-
-@end
-```
-GKLocalPlayerHack.m
-```swift
-#import "GKLocalPlayerHack.h"
-
-@implementation GKLocalPlayerHack
-
-GKLocalPlayer *getLocalPlayer(void)
-{
-    return [GKLocalPlayer localPlayer];
-}
-@end
-```
-(3) In your Swift Bridging Header.h (Objectic-c import)
-```swift
-#import "GKLocalPlayerHack.h"
-```
 **Begin** Begin add attribute in your class Controller:
 =====
 ```swift
@@ -51,9 +19,7 @@ var gameCenter: GameCenter!
 ```swift
 override func viewDidLoad() {
         super.viewDidLoad()
-        self.gameCenter = GameCenter(uiControlNow: self)
-        // Load in app Achievements
-        gameCenter.gameCenterLoadAchievements()
+        self.gameCenter = GameCenter(rootViewController: self)
 }
 ```
 
@@ -70,7 +36,10 @@ gameCenter.addProgressToAnAchievement(progress:Double,achievementID:String)
 ```swift
 gameCenter.resetAchievements(achievementID:String)
 ```
-
+**Show Game Center Player**
+```swift
+gameCenter.showGameCenter()
+```
 
 ### Legacy support
 For support of iOS 7 & 8. [Yannick Stephan](https://yannickstephan.com) works hard to have as high feature parity with **Simple Game Center** as possible.
