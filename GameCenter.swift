@@ -161,7 +161,8 @@ class GameCenter: NSObject, GKGameCenterControllerDelegate {
     /**
         Reports a given score to Game Center
     
-        :param: Int  The Score
+        :param: the Score
+        :param: leaderboard identifier
     */
     func reportScore(score: Int, leaderboardIdentifier: String) {
         if canUseGameCenter == true {
