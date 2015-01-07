@@ -10,15 +10,16 @@ Version : 2.5
 **UIViewController** In your main class add :
 =====
 ```swift
-// ADD Protocol GADInterstitialDelegate
+/******* ADD Protocol GADInterstitialDelegate *******/
 class MyClassViewController: UIViewController, GADInterstitialDelegate {
-        /// ADD GameCenter Swift
+        
+        /******* ADD GameCenter Swift *******/
         var gameCenter: GameCenter! 
         
         override func viewDidLoad() {
                 super.viewDidLoad()
                 
-                /// ADD Delagate GameCenter Swift
+                /******* ADD delegate root view controller GameCenter Swift *******/
                 self.gameCenter = GameCenter(rootViewController: self)
         }
 }
