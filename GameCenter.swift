@@ -49,7 +49,7 @@ class GameCenter: NSObject, GKGameCenterControllerDelegate {
     
     var vc: UIViewController
     
-    var leaderboardIdentifier = "classement_internationale"
+    
     /**
     builder
     */
@@ -163,9 +163,9 @@ class GameCenter: NSObject, GKGameCenterControllerDelegate {
     
         :param: Int  The Score
     */
-    func reportScore(score: Int) {
+    func reportScore(score: Int, leaderboardIdentifier: String) {
         if canUseGameCenter == true {
-            var scoreReporter = GKScore(leaderboardIdentifier: self.leaderboardIdentifier)
+            var scoreReporter = GKScore(leaderboardIdentifier: leaderboardIdentifier)
             scoreReporter.value = Int64(score)
             var scoreArray: [GKScore] = [scoreReporter]
             GKScore.reportScores(scoreArray, {(error : NSError!) -> Void in
