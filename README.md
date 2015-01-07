@@ -32,11 +32,11 @@ class MyClassViewController: UIViewController, GADInterstitialDelegate {
 =====
 **Reports a given score to Game Center**
 ```swift
-gameCenter.reportScore(score: Int, leaderboardIdentifier: "classement_internationale")
+gameCenter.reportScore(score: Int, leaderboardIdentifier: "leaderboard_identifier")
 ```
 **Add Progress To An Achievement**
 ```swift
-gameCenter.addProgressToAnAchievement(progress:Double,achievementID:String)
+gameCenter.addProgressToAnAchievement(progress:Double,achievementID: "achievement_ID_identifier")
 ```
 **Reset one Achievements**
 ```swift
