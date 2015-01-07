@@ -5,21 +5,20 @@ Simple Game Center iOS Swift Class
 
 By Yannickstephan.com
 
-Version : 2.0
+Version : 2.5
 
-**Begin** Begin add attribute in your class Controller:
+**UIViewController** In your main class add :
 =====
 ```swift
-var gameCenter: GameCenter! 
-```
-
-
-**UIViewController** In the same class add :
-=====
-```swift
-class MyClassViewController: UIViewController,GADInterstitialDelegate {
+// ADD Protocol GADInterstitialDelegate
+class MyClassViewController: UIViewController, GADInterstitialDelegate {
+        /// ADD GameCenter Swift
+        var gameCenter: GameCenter! 
+        
         override func viewDidLoad() {
                 super.viewDidLoad()
+                
+                /// ADD Delagate GameCenter Swift
                 self.gameCenter = GameCenter(rootViewController: self)
         }
 }
@@ -30,7 +29,10 @@ class MyClassViewController: UIViewController,GADInterstitialDelegate {
 =====
 **Things you can do**
 =====
-
+**Reports a given score to Game Center**
+```swift
+gameCenter.reportScore(score: Int, leaderboardIdentifier: "classement_internationale")
+```
 **Add Progress To An Achievement**
 ```swift
 gameCenter.addProgressToAnAchievement(progress:Double,achievementID:String)
@@ -43,7 +45,7 @@ gameCenter.resetAchievements(achievementID:String)
 ```swift
 gameCenter.showGameCenter()
 ```
-
+ 
 ### Legacy support
 For support of iOS 7 & 8. [Yannick Stephan](https://yannickstephan.com) works hard to have as high feature parity with **Simple Game Center** as possible.
 
