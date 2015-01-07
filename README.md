@@ -17,10 +17,13 @@ var gameCenter: GameCenter!
 **UIViewController** In the same class add :
 =====
 ```swift
-override func viewDidLoad() {
-        super.viewDidLoad()
-        self.gameCenter = GameCenter(rootViewController: self)
+class MyClassViewController: UIViewController,GADInterstitialDelegate {
+        override func viewDidLoad() {
+                super.viewDidLoad()
+                self.gameCenter = GameCenter(rootViewController: self)
+        }
 }
+
 ```
 
 **Methode** for Simple Class Game Center :
