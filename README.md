@@ -1,5 +1,6 @@
 Simple Class Game Center Swift  [![](http://img.shields.io/badge/iOS-8.0%2B-lightgrey.svg)]()
 =====
+[![](http://www.iphonelife.com/sites/iphonelife.com/files/u31936/Game_Center.png)]()
 
 Simple Game Center iOS Swift Class
 
@@ -7,7 +8,9 @@ By Yannickstephan.com
 
 Version : 3.0
 
-**Begin** Add GameKit FrameWork > General > Linked Frameworks and Libraries:
+**Begin** 
+
+Add GameKit FrameWork > General > Linked Frameworks and Libraries:
 [![](http://imagizer.imageshack.us/v2/640x480q90/540/cLGFV6.png)]()
 
 **UIViewController** In your main class add :
@@ -47,7 +50,7 @@ gameCenter.resetAchievements(achievementIdentifier:String)
 ```
 **Reset All Achievements**
 ```swift
-gameCenter.resetAllAchievements(achievementIdentifier:String)
+gameCenter.resetAllAchievements()
 ```
 **If achievement is finished**
 ```swift
@@ -57,9 +60,35 @@ gameCenter.isAchievementFinished(achievementIdentifier:String)
 ```swift
 gameCenter.showGameCenter()
 ```
- 
+
+
+**Example Code**
+ ```swift
+class MyClassViewController: UIViewController, GADInterstitialDelegate {
+        /// GameCenter
+        var gameCenter: GameCenter! 
+        
+        override func viewDidLoad() {
+                super.viewDidLoad()
+                gameCenter = GameCenter(rootViewController: self)
+        }
+        /* Open Game Center */
+        @IBAction func showGameCenterAction(sender: AnyObject) {
+                self.gameCenter.showGameCenter()
+        }
+        /* My_Achievement_ID Have 100% */
+        @IBAction func addProgressAction(sender: AnyObject) {
+                self.gameCenter.addProgressToAnAchievement(100.00,"My_Achievement_ID")
+        }
+        /* Reset All Achievements */
+        @IBAction func addProgressAction(sender: AnyObject) {
+                self.gameCenter.resetAllAchievements()
+        }
+}
+
+```
 ### Legacy support
-For support of iOS 7 & 8. [Yannick Stephan](https://yannickstephan.com) works hard to have as high feature parity with **Simple Game Center** as possible.
+For support of iOS 7 & 8+ [Yannick Stephan](https://yannickstephan.com) works hard to have as high feature parity with **Simple Game Center** as possible.
 
 ### License
 The MIT License (MIT)
