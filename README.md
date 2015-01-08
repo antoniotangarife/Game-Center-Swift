@@ -8,8 +8,10 @@ By Yannickstephan.com
 
 Version : 3.0
 
-**Begin** 
+**Example** 
+here : https://github.com/DaRkD0G/Example-GameCenter
 
+**Begin** 
 Add GameKit FrameWork > General > Linked Frameworks and Libraries:
 [![](http://imagizer.imageshack.us/v2/640x480q90/540/cLGFV6.png)]()
 
