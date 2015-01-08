@@ -16,8 +16,7 @@ Add GameKit FrameWork > General > Linked Frameworks and Libraries:
 **UIViewController** In your main class add :
 =====
 ```swift
-/******* ADD Protocol GADInterstitialDelegate *******/
-class MyClassViewController: UIViewController, GADInterstitialDelegate {
+class MyClassViewController: UIViewController {
         
         /******* ADD GameCenter Swift *******/
         var gameCenter: GameCenter! 
