@@ -5,7 +5,10 @@ Simple Game Center iOS Swift Class
 
 By Yannickstephan.com
 
-Version : 2.5
+Version : 3.0
+
+**Begin** Add GameKit FrameWork :
+[![](http://imagizer.imageshack.us/v2/640x480q90/540/cLGFV6.png)]()
 
 **UIViewController** In your main class add :
 =====
