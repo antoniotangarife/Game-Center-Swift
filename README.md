@@ -1,6 +1,7 @@
 Simple Class Game Center Swift  [![](http://img.shields.io/badge/iOS-8.0%2B-lightgrey.svg)]()
 =====
-[![](http://imagizer.imageshack.us/v2/640x480q90/538/6IPy9O.png)]()
+
+[![](http://imagizer.imageshack.us/v2/320x240q90/538/RMNfHp.png]()
 
 Simple Game Center iOS Swift Class
 
