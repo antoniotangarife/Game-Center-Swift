@@ -7,7 +7,7 @@ By Yannickstephan.com
 
 Version : 3.0
 
-**Begin** Add GameKit FrameWork :
+**Begin** Add GameKit FrameWork > General > Linked Frameworks and Libraries:
 [![](http://imagizer.imageshack.us/v2/640x480q90/540/cLGFV6.png)]()
 
 **UIViewController** In your main class add :
@@ -35,15 +35,23 @@ class MyClassViewController: UIViewController, GADInterstitialDelegate {
 =====
 **Reports a given score to Game Center**
 ```swift
-gameCenter.reportScore(score: Int, leaderboardIdentifier: "leaderboard_identifier")
+gameCenter.reportScore(score: Int, leaderboardIdentifier: String)
 ```
 **Add Progress To An Achievement**
 ```swift
-gameCenter.addProgressToAnAchievement(progress:Double,achievementID: "achievement_ID_identifier")
+gameCenter.addProgressToAnAchievement(progress:Double,achievementIdentifier:String)
 ```
-**Reset one Achievements**
+**Reset one Achievement**
 ```swift
-gameCenter.resetAchievements(achievementID:String)
+gameCenter.resetAchievements(achievementIdentifier:String)
+```
+**Reset All Achievements**
+```swift
+gameCenter.resetAllAchievements(achievementIdentifier:String)
+```
+**If achievement is finished**
+```swift
+gameCenter.isAchievementFinished(achievementIdentifier:String)
 ```
 **Show Game Center Player**
 ```swift
