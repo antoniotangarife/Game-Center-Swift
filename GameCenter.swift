@@ -3,8 +3,8 @@
 //
 //  Created by Yannick Stephan DaRk-_-D0G on 19/12/2014.
 //  YannickStephan.com
-//  Version 3.0
-//	iOS 7.0+, 8.0+
+//
+//	iOS 7.0+
 //
 //	The MIT License (MIT)
 //	Copyright (c) 2014 Tobias Due Munk
@@ -109,7 +109,7 @@ class GameCenter: NSObject, GKGameCenterControllerDelegate {
         }
     }
     /**
-        If achievement is Finish
+        If achievement is Finished
         :param: achievementIdentifier
     */
     func isAchievementFinished(achievementIdentifier uAchievementId:String) -> Bool{
@@ -132,15 +132,15 @@ class GameCenter: NSObject, GKGameCenterControllerDelegate {
         :param: Progress achievement Double (ex: 10% = 10.00)
         :param: ID Achievement
     */
-    func addProgressToAnAchievement(progress uProg:Double,achievementIdentifier uAchievementId:String) {
+    func addProgressToAnAchievement(progress uProgress:Double,achievementIdentifier uAchievementId:String) {
         if canUseGameCenter == true {
             var lookupAchievement:GKAchievement? = gameCenterAchievements[uAchievementId]
             
             if let achievement = lookupAchievement {
                 if achievement.percentComplete != 100 {
-                    achievement.percentComplete = uProg
+                    achievement.percentComplete = uProgress
                     
-                    if uProg == 100.0  {
+                    if uProgress == 100.0  {
                         /* show banner only if achievement is fully granted (progress is 100%) */
                         achievement.showsCompletionBanner=true
                     }
@@ -148,7 +148,7 @@ class GameCenter: NSObject, GKGameCenterControllerDelegate {
                     /* try to report the progress to the Game Center */
                     GKAchievement.reportAchievements([achievement], withCompletionHandler:  {(var error:NSError!) -> Void in
                         if error != nil {
-                            println("Couldn't save achievement (\(uAchievementId)) progress to \(uProg) %")
+                            println("Couldn't save achievement (\(uAchievementId)) progress to \(uProgress) %")
                         }
                     })
                 }
@@ -158,7 +158,7 @@ class GameCenter: NSObject, GKGameCenterControllerDelegate {
                 println("No achievement with ID (\(uAchievementId)) was found, no progress for this one was recoreded yet. Create achievement now.")
                 gameCenterAchievements[uAchievementId] = GKAchievement(identifier: uAchievementId)
                 /* recursive recall this func now that the achievement exist */
-                addProgressToAnAchievement(progress: uProg, achievementIdentifier: uAchievementId)
+                addProgressToAnAchievement(progress: uProgress, achievementIdentifier: uAchievementId)
             }
         }
     }
@@ -168,10 +168,10 @@ class GameCenter: NSObject, GKGameCenterControllerDelegate {
         :param: the Score
         :param: leaderboard identifier
     */
-    func reportScore(score: Int,leaderboardIdentifier uleaderboardIdentifier: String ) {
+    func reportScore(score uScore: Int,leaderboardIdentifier uleaderboardIdentifier: String ) {
         if canUseGameCenter == true {
             var scoreReporter = GKScore(leaderboardIdentifier: uleaderboardIdentifier)
-            scoreReporter.value = Int64(score)
+            scoreReporter.value = Int64(uScore)
             var scoreArray: [GKScore] = [scoreReporter]
             GKScore.reportScores(scoreArray, {(error : NSError!) -> Void in
                 if error != nil {
@@ -185,24 +185,24 @@ class GameCenter: NSObject, GKGameCenterControllerDelegate {
     
         :param: ID Achievement
     */
-    func resetAchievements(achievementID:String) {
+    func resetAchievements(achievementIdentifier uAchievementId:String) {
         if canUseGameCenter == true {
-            var lookupAchievement:GKAchievement? = gameCenterAchievements[achievementID]
+            var lookupAchievement:GKAchievement? = gameCenterAchievements[uAchievementId]
             
             if let achievement = lookupAchievement {
                 GKAchievement.resetAchievementsWithCompletionHandler({ (var error:NSError!) -> Void in
                     if error != nil {
-                        println("Couldn't Reset achievement (\(achievementID))")
+                        println("Couldn't Reset achievement (\(uAchievementId))")
                     } else {
-                        println("Reset achievement (\(achievementID))")
+                        println("Reset achievement (\(uAchievementId))")
                     }
                 })
                 
             } else {
-                println("No achievement with ID (\(achievementID)) was found, no progress for this one was recoreded yet. Create achievement now.")
-                gameCenterAchievements[achievementID] = GKAchievement(identifier: achievementID)
+                println("No achievement with ID (\(uAchievementId)) was found, no progress for this one was recoreded yet. Create achievement now.")
+                gameCenterAchievements[uAchievementId] = GKAchievement(identifier: uAchievementId)
                 /* recursive recall this func now that the achievement exist */
-                self.resetAchievements(achievementID)
+                self.resetAchievements(achievementIdentifier: uAchievementId)
             }
         }
     }
@@ -229,7 +229,7 @@ class GameCenter: NSObject, GKGameCenterControllerDelegate {
                     println("No achievement with ID (\(achievementID)) was found, no progress for this one was recoreded yet. Create achievement now.")
                     gameCenterAchievements[achievementID] = GKAchievement(identifier: achievementID)
                     /* recursive recall this func now that the achievement exist */
-                    self.resetAchievements(achievementID)
+                    self.resetAchievements(achievementIdentifier: achievementID)
                 }
             }
         }
