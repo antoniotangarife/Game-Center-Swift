@@ -244,4 +244,15 @@ class GameCenter: NSObject, GKGameCenterControllerDelegate {
             self.vc.presentViewController(gc, animated: true, completion: nil)
         }
     }
+    //  Show Game Center Leaderboard passed as string into func
+    func showGameCenterLeaderboard(lb :String) {
+        if canUseGameCenter == true {
+            var gc = GKGameCenterViewController()
+            gc.gameCenterDelegate = self
+            gc.leaderboardIdentifier = lb
+            gc.viewState = GKGameCenterViewControllerState.Leaderboards
+            self.vc.presentViewController(gc, animated: true, completion: nil)
+        }
+    }
+    
 }
