@@ -58,7 +58,7 @@ self.gameCenter.showGameCenter(completion: nil)
 /**
     Show Game Center Player
     
-    With completion for check if player is login in Game Center
+    With completion check Game Center Window is open
 */
 self.gameCenter.showGameCenter { (result) -> Void in
     if result {
@@ -75,14 +75,14 @@ Thanks to J0hnniemac author
 /**
     Show Game Center Leaderboard passed as string into function
     
-    Without completioon
+    Without completion
 */
 gameCenter.showGameCenterLeaderboard(leaderboardIdentifier: String, completion: nil)
 
 /**
     Show Game Center Leaderboard passed as string into function
     
-    Without completion
+    With completion check Game Center Window is open
 */
 gameCenter.showGameCenterLeaderboard(leaderboardIdentifier: "ok") { (result) -> Void in
     if result {
@@ -98,6 +98,13 @@ gameCenter.showGameCenterLeaderboard(leaderboardIdentifier: "ok") { (result) -> 
 /**
     Forcing the player to identify themselves on game center if it did not already
     
+    Without Completion
+*/
+self.gameCenter.loginToGameCenter(completion: nil)
+
+/**
+    Forcing the player to identify themselves on game center if it did not already
+    
     With Completion for Open Windows Login in Game Center if player is not Login or do nothing if he is already identified
 */
 gameCenter.loginToGameCenter() {
@@ -108,12 +115,6 @@ gameCenter.loginToGameCenter() {
         /* Player is Not Login in Game Center */
     }
 }
-/**
-    Forcing the player to identify themselves on game center if it did not already
-    
-    Without Completion
-*/
-self.gameCenter.loginToGameCenter(completion: nil)
 ```
 ### Reports Scores or Achievements ###
 
@@ -132,20 +133,22 @@ gameCenter.addProgressToAnAchievement(progress:Double, achievementIdentifier:Str
 **Reports a given score to Game Center**
 ```swift
 /**
-    Reports a given score to Game Center without completion
+    Reports a given score to Game Center 
     
     :param: Int Score
     :param: Leaderboard identifier
+    
+    Without completion
 */
 gameCenter.reportScore(score: Int,leaderboardIdentifier: String, completion: nil)
 
 /**
-    Reports a given score to Game Center with completion
+    Reports a given score to Game Center 
     
     :param: Int Score
     :param: Leaderboard identifier
     
-    Completion return is your report score work or not
+    With completion return is your report score work or not
 */
 self.gameCenter.reportScore(score: Int, leaderboardIdentifier: String, completion: { (result) -> Void in
         if result {
