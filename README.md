@@ -32,9 +32,9 @@ class MyClassViewController: UIViewController {
                 self.gameCenter.loginToGameCenter() {
                     (result: Bool) in
                     if result {
-                        /* Player is Login in Game Center OR Open Windows for login in Game Center */
+                        /* Player is login in Game Center OR Open Windows for login in Game Center */
                     } else {
-                        /* Player is Not Login in Game Center */
+                        /* Player is not nogin in Game Center */
                     }
                 }
         }
