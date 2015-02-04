@@ -1,5 +1,4 @@
-Simple Class Game Center Swift  [![](http://img.shields.io/badge/iOS-8.0%2B-lightgrey.svg)]()
-=====
+###Simple Class Game Center Swift  [![](http://img.shields.io/badge/iOS-8.0%2B-lightgrey.svg)]()###
 [![](http://imagizer.imageshack.us/v2/320x240q90/538/RMNfHp.png)]()
 
 Simple Game Center iOS Swift Class
@@ -15,8 +14,7 @@ here : https://github.com/DaRkD0G/Example-GameCenter
 Add GameKit FrameWork > General > Linked Frameworks and Libraries:
 [![](http://imagizer.imageshack.us/v2/640x480q90/540/cLGFV6.png)]()
 
-**UIViewController** In your main class add :
-=====
+###**UIViewController** In your main class add :###
 ```swift
 class MyClassViewController: UIViewController {
         
@@ -42,9 +40,9 @@ class MyClassViewController: UIViewController {
 
 ```
 
-**Method** for Simple Class Game Center :
-=====
-**Things you can do**
+###**Method** for Simple Class Game Center :###
+
+##**Things you can do**##
 =====
 **Show Game Center Player**
 ```swift
