@@ -68,11 +68,11 @@ class GameCenter: NSObject, GKGameCenterControllerDelegate {
         gameCenterViewController.dismissViewControllerAnimated(true, completion: nil)
     }
     /**
-        Login to GameCenter
+        Forcing the player to identify themselves on game center if it did not already
     
         :return: completion if login is OK
     */
-    func loginToGameCenter(completion: ((result:Bool) -> Void)?) {
+    func loginToGameCenter(#completion: ((result:Bool) -> Void)?) {
         self.gameCenterPlayer.authenticateHandler = {(var gameCenterVC:UIViewController!, var gameCenterError:NSError!) -> Void in
             
             if gameCenterVC != nil {
@@ -250,11 +250,11 @@ class GameCenter: NSObject, GKGameCenterControllerDelegate {
         }
     }
     /**
-    Show Game Center Player
+        Show Game Center Player
     
-    :param: completion if Game Center Open Windows
+        :param: completion if Game Center Open Windows
     */
-    func showGameCenter(completion: ((result:Bool) -> Void)?) {
+    func showGameCenter(#completion: ((result:Bool) -> Void)?) {
         if canUseGameCenter == true {
             var gc = GKGameCenterViewController()
             gc.gameCenterDelegate = self
@@ -271,11 +271,12 @@ class GameCenter: NSObject, GKGameCenterControllerDelegate {
     
         :return: completion if Game Center Open Windows
     */
-    func showGameCenterLeaderboard(lb :String,completion: ((result:Bool) -> Void)?) {
+    func showGameCenterLeaderboard(leaderboardIdentifier uleaderboardId :String,completion: ((result:Bool) -> Void)?) {
+
         if canUseGameCenter == true {
             var gc = GKGameCenterViewController()
             gc.gameCenterDelegate = self
-            gc.leaderboardIdentifier = lb
+            gc.leaderboardIdentifier = uleaderboardId
             gc.viewState = GKGameCenterViewControllerState.Leaderboards
             self.vc.presentViewController(gc, animated: true, completion: { () -> Void in
                 completion!(result: true)
@@ -283,6 +284,25 @@ class GameCenter: NSObject, GKGameCenterControllerDelegate {
         } else {
                 completion!(result: false)
         }
+    }
+    /**
+        If achievement is Finish
+    
+        :param: achievementIdentifier
+    */
+    func isAchievementFinished(achievementIdentifier uAchievementId:String) -> Bool{
+        if canUseGameCenter == true {
+            var lookupAchievement:GKAchievement? = gameCenterAchievements[uAchievementId]
+            if let achievement = lookupAchievement {
+                if achievement.percentComplete == 100 {
+                    return true
+                }
+            } else {
+                gameCenterAchievements[uAchievementId] = GKAchievement(identifier: uAchievementId)
+                return isAchievementFinished(achievementIdentifier: uAchievementId)
+            }
+        }
+        return false
     }
     
 }
