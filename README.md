@@ -20,15 +20,15 @@ Add GameKit FrameWork > General > Linked Frameworks and Libraries:
 ```swift
 class MyClassViewController: UIViewController {
         
-        /// GameCenter Swift
+        /* GameCenter Swift */
         var gameCenter: GameCenter! 
         
         override func viewDidLoad() {
                 super.viewDidLoad()
                 
-                /// ADD delegate root view controller in GameCenter Swift
+                /* Add delegate root view controller in GameCenter Swift */
                 self.gameCenter = GameCenter(rootViewController: self)
-                /// Open Windows Game Center if player not login in Game Center
+                /* Open Windows Game Center if player not login in Game Center */
                 self.gameCenter.loginToGameCenter() {
                     (result: Bool) in
                     if result {
