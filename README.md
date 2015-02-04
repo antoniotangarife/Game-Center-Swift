@@ -84,7 +84,7 @@ gameCenter.showGameCenterLeaderboard(leaderboardIdentifier: String, completion: 
     
     With completion check Game Center Window is open
 */
-gameCenter.showGameCenterLeaderboard(leaderboardIdentifier: "ok") { (result) -> Void in
+gameCenter.showGameCenterLeaderboard(leaderboardIdentifier: String) { (result) -> Void in
     if result {
         /* Game Center Window is open */
     } else {
