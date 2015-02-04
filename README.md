@@ -6,7 +6,7 @@ Simple Game Center iOS Swift Class
 
 By Yannickstephan.com
 
-Version : 3.0
+Version : 2.0
 
 **Example** 
 here : https://github.com/DaRkD0G/Example-GameCenter
@@ -20,52 +20,172 @@ Add GameKit FrameWork > General > Linked Frameworks and Libraries:
 ```swift
 class MyClassViewController: UIViewController {
         
-        /******* ADD GameCenter Swift *******/
+        /// GameCenter Swift
         var gameCenter: GameCenter! 
         
         override func viewDidLoad() {
                 super.viewDidLoad()
                 
-                /******* ADD delegate root view controller GameCenter Swift *******/
+                /// ADD delegate root view controller in GameCenter Swift
                 self.gameCenter = GameCenter(rootViewController: self)
+                /// Open Windows Game Center if player not login in Game Center
+                self.gameCenter.loginToGameCenter() {
+                    (result: Bool) in
+                    if result {
+                        /* Player is Login in Game Center OR Open Windows for login in Game Center */
+                    } else {
+                        /* Player is Not Login in Game Center */
+                    }
+                }
         }
 }
 
 ```
 
-**Methode** for Simple Class Game Center :
+**Method** for Simple Class Game Center :
 =====
 **Things you can do**
 =====
+**Show Game Center Player**
+```swift
+/**
+    Show Game Center Player
+    
+    Without completion 
+*/
+self.gameCenter.showGameCenter(completion: nil)
+
+/**
+    Show Game Center Player
+    
+    With completion for check if player is login in Game Center
+*/
+self.gameCenter.showGameCenter { (result) -> Void in
+    if result {
+        /* Game Center Window is open */
+    } else {
+        /* Game Center Window is not open (Example player not login in Game Center) */
+    }
+}
+```
+**Show Game Center Leaderboard passed as string into Function**
+
+Thanks to J0hnniemac author
+```swift
+/**
+    Show Game Center Leaderboard passed as string into function
+    
+    Without completioon
+*/
+gameCenter.showGameCenterLeaderboard(leaderboardIdentifier: String, completion: nil)
+
+/**
+    Show Game Center Leaderboard passed as string into function
+    
+    Without completion
+*/
+gameCenter.showGameCenterLeaderboard(leaderboardIdentifier: "ok") { (result) -> Void in
+    if result {
+        /* Game Center Window is open */
+    } else {
+        /* Game Center Window is not open (Example player not login in Game Center) */
+    }
+}
+```
+
+**Forcing the player to identify themselves on game center if it did not already**
+```swift
+/**
+    Forcing the player to identify themselves on game center if it did not already
+    
+    With Completion for Open Windows Login in Game Center if player is not Login or do nothing if he is already identified
+*/
+gameCenter.loginToGameCenter() {
+    (result: Bool) in
+    if result {
+        /* Player is Login in Game Center OR Open Windows for login in Game Center */
+    } else {
+        /* Player is Not Login in Game Center */
+    }
+}
+/**
+    Forcing the player to identify themselves on game center if it did not already
+    
+    Without Completion
+*/
+self.gameCenter.loginToGameCenter(completion: nil)
+```
+### Reports Scores or Achievements ###
+
+**Add progress to an Achievement**
+
+```swift
+/**
+    Add progress to an achievement
+    
+    :param: Add progress to an achievement Double (ex: 10% = 10.00)
+    :param: Achievement identifier
+*/
+gameCenter.addProgressToAnAchievement(progress:Double, achievementIdentifier:String)
+```
+
 **Reports a given score to Game Center**
 ```swift
-gameCenter.reportScore(score: Int, leaderboardIdentifier: String)
+/**
+    Reports a given score to Game Center without completion
+    
+    :param: Int Score
+    :param: Leaderboard identifier
+*/
+gameCenter.reportScore(score: Int,leaderboardIdentifier: String, completion: nil)
+
+/**
+    Reports a given score to Game Center with completion
+    
+    :param: Int Score
+    :param: Leaderboard identifier
+    
+    Completion return is your report score work or not
+*/
+self.gameCenter.reportScore(score: Int, leaderboardIdentifier: String, completion: { (result) -> Void in
+        if result {
+                /* Result is submit */
+        } else {
+                /* Is fail */
+        }
+})
 ```
-**Add Progress To An Achievement**
-```swift
-gameCenter.addProgressToAnAchievement(progress:Double,achievementIdentifier:String)
-```
+### Reset Achievement ###
 **Reset one Achievement**
 ```swift
+/**
+    Remove One Achievement
+    
+    :param: Achievement identifier
+*/
 gameCenter.resetAchievements(achievementIdentifier:String)
 ```
 **Reset All Achievements**
 ```swift
+/**
+    Remove All Achievements
+*/
 gameCenter.resetAllAchievements()
 ```
+### Other methods ###
 **If achievement is finished**
 ```swift
+/**
+    If achievement is Finish
+    
+    :param: Achievement identifier
+*/
 gameCenter.isAchievementFinished(achievementIdentifier:String)
 ```
-**Show Game Center Player**
-```swift
-gameCenter.showGameCenter()
-```
 
-
-**Example Code**
+### Example Code ###
  ```swift
-class MyClassViewController: UIViewController, GADInterstitialDelegate {
+class MyClassViewController: UIViewController {
         /// GameCenter
         var gameCenter: GameCenter! 
         
