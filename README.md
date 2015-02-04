@@ -41,9 +41,8 @@ class MyClassViewController: UIViewController {
 ```
 
 ###**Method** for Simple Class Game Center :###
-
 ##**Things you can do**##
-=====
+
 **Show Game Center Player**
 ```swift
 /**
