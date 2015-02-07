@@ -78,21 +78,21 @@ class GameCenter: NSObject, GKGameCenterControllerDelegate {
             if gameCenterVC != nil {
                 
                 self.vc.presentViewController(gameCenterVC, animated: true, completion: { () -> Void in
-                   completion!(result: true)
+                    if completion != nil { completion!(result: true) }
                 })
                 
             } else if self.gameCenterPlayer.authenticated == true {
                 self.canUseGameCenter = true
-                completion!(result: true)
+                if completion != nil { completion!(result: true) }
             } else  {
                 self.canUseGameCenter = false
-                completion!(result: false)
+                if completion != nil { completion!(result: false) }
             }
             
             if gameCenterError != nil {
-                completion!(result: false)
+                if completion != nil { completion!(result: false) }
             } else {
-                completion!(result: true)
+                if completion != nil { completion!(result: true) }
             }
         }
     }
@@ -186,12 +186,15 @@ class GameCenter: NSObject, GKGameCenterControllerDelegate {
             scoreReporter.value = Int64(uScore)
             var scoreArray: [GKScore] = [scoreReporter]
             GKScore.reportScores(scoreArray, {(error : NSError!) -> Void in
-                if error != nil {
-                    completion!(result: false)
-                    println(error.localizedDescription)
-                } else {
-                    completion!(result: true)
-                }
+
+                    if error != nil {
+                        if completion != nil { completion!(result: false) }
+                        println(error.localizedDescription)
+                    } else {
+                        if completion != nil { completion!(result: true) }
+                    }
+                
+
             })
         }
     }
@@ -259,10 +262,13 @@ class GameCenter: NSObject, GKGameCenterControllerDelegate {
             var gc = GKGameCenterViewController()
             gc.gameCenterDelegate = self
             self.vc.presentViewController(gc, animated: true, completion: { () -> Void in
-               completion!(result: true)
+                if completion != nil { completion!(result: true) }
+               
             })
         } else {
-           completion!(result: false)
+            if completion != nil {
+                if completion != nil { completion!(result: false) }
+            }
         }
         
     }
@@ -279,10 +285,12 @@ class GameCenter: NSObject, GKGameCenterControllerDelegate {
             gc.leaderboardIdentifier = uleaderboardId
             gc.viewState = GKGameCenterViewControllerState.Leaderboards
             self.vc.presentViewController(gc, animated: true, completion: { () -> Void in
-                completion!(result: true)
+                if completion != nil { completion!(result: true) }
             })
         } else {
-                completion!(result: false)
+            if completion != nil {
+                if completion != nil { completion!(result: false) }
+            }
         }
     }
     /**
