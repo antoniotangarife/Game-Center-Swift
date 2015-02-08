@@ -4,6 +4,8 @@
 Simple Game Center iOS Swift Class
 
 By Yannickstephan.com
+Example of Game with Simple Class Game Center Swift
+Here : http://bit.ly/1zGJMNG
 
 Version : 2.0
 
